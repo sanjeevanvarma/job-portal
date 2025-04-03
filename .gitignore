@@ -1,0 +1,7 @@
+node_modules
+# Ignore all .env files in the project (regardless of location)
+**/.env
+
+# Ignore all .env files in the project
+#client/.env
+#server/.env
