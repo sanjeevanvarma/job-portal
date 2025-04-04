@@ -30,7 +30,7 @@ export const clerkWebhooks = async(req, res) =>{
                     resume: ''
                 }
                 await User.create(userData);
-                res.join({ success: true })
+                res.json({ success: true })
                 break;
                 
             }
@@ -41,7 +41,7 @@ export const clerkWebhooks = async(req, res) =>{
                     image: data.image_url,
                 }
                 await User.findByIdAndUpdate(data.id, userData)
-                res.join({ success: true })
+                res.json({ success: true })
                 break;
                 
             }
