@@ -46,7 +46,7 @@ export const clerkWebhooks = async(req, res) =>{
                     resume: ''
                 }
                 await User.create(userData);
-                res.join({ success: true })
+                res.json({ success: true })
                 break;
                 
             }
@@ -57,7 +57,7 @@ export const clerkWebhooks = async(req, res) =>{
                     image: data.image_url,
                 }
                 await User.findByIdAndUpdate(data.id, userData)
-                res.join({ success: true })
+                res.json({ success: true })
                 break;
                 
             }
@@ -102,14 +102,14 @@ export const clerkWebhooks = async(req, res) =>{
 // // API Controller function to manage Clerk user data in MongoDB
 // export const clerkWebhooks = async (req, res) => {
 //     try {
-//         console.log("🚀 Incoming webhook request...");
+//         console.log(" Incoming webhook request...");
 
 //         // Step 1: Create a Svix Webhook instance with your Clerk secret
 //         const whook = new Webhook(process.env.CLERK_WEBHOOK_SECRET);
-//         console.log("🔑 Webhook instance created with Clerk secret");
+//         console.log(" Webhook instance created with Clerk secret");
 
 //         // Step 2: Log headers received for debugging
-//         console.log("📬 Received headers:", {
+//         console.log(" Received headers:", {
 //             "svix-id": req.headers["svix-id"],
 //             "svix-timestamp": req.headers["svix-timestamp"],
 //             "svix-signature": req.headers["svix-signature"],
@@ -121,12 +121,12 @@ export const clerkWebhooks = async(req, res) =>{
 //         //     "svix-timestamp": req.headers["svix-timestamp"],
 //         //     "svix-signature": req.headers["svix-signature"],
 //         // });
-//         // console.log("✅ Webhook signature verified");
+//         // console.log(" Webhook signature verified");
 
 //         // Step 4: Get data and event type from the body
 //         const { data, type } = req.body;
-//         console.log("📦 Webhook event type:", type);
-//         console.log("🧾 Webhook payload:", JSON.stringify(data, null, 2));
+//         console.log(" Webhook event type:", type);
+//         console.log(" Webhook payload:", JSON.stringify(data, null, 2));
 
 //         // Step 5: Handle event based on its type
 //         switch (type) {
@@ -139,7 +139,7 @@ export const clerkWebhooks = async(req, res) =>{
 //                     resume: "",
 //                 };
 //                 await User.create(userData);
-//                 console.log("🆕 New user created in DB:", userData);
+//                 console.log(" New user created in DB:", userData);
 //                 res.json({ success: true });
 //                 break;
 //             }
@@ -151,25 +151,25 @@ export const clerkWebhooks = async(req, res) =>{
 //                     image: data.image_url,
 //                 };
 //                 await User.findByIdAndUpdate(data.id, userData);
-//                 console.log("🔄 User updated in DB:", userData);
+//                 console.log(" User updated in DB:", userData);
 //                 res.json({ success: true });
 //                 break;
 //             }
 
 //             case "user.deleted": {
 //                 await User.findByIdAndDelete(data.id);
-//                 console.log("❌ User deleted from DB with ID:", data.id);
+//                 console.log(" User deleted from DB with ID:", data.id);
 //                 res.json({ success: true });
 //                 break;
 //             }
 
 //             default:
-//                 console.log("⚠️ Unhandled event type:", type);
+//                 console.log(" Unhandled event type:", type);
 //                 res.json({ success: false, message: "Invalid event type" });
 //                 break;
 //         }
 //     } catch (error) {
-//         console.error("❗ Error in webhook handler:", error.message);
+//         console.error(" Error in webhook handler:", error.message);
 //         res.json({ success: false, message: "Webhooks Error" });
 //     }
 // };
